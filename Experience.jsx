@@ -3,6 +3,14 @@ import React from 'react';
 const Experience = () => {
   const jobs = [
     {
+      company: "TheBest Claims Solutions",
+      title: "AI Solutions Engineer",
+      range: "June 2026 - Present",
+      duties: [
+        "Engineered an enterprise-grade agentic AI system automating end-to-end contents valuation for insurance claims. The agent ingests claims documents via Salesforce and custom upload interfaces, uses OCR to extract inventory line items, then runs priority-based product searches across Google, Amazon, Home Depot and more. Guided by carrier-configurable business rules, it applies a tiered best-match framework: original brand on primary sites, third-party median pricing, cross-brand equivalents, then closest-spec alternatives for discontinued items. Unspecified items are matched by price-proximity to infer quality tier."
+      ]
+    },
+    {
       company: "Arizona State University",
       title: "Software Engineer (Support Aide)",
       range: "Jun 2024 - Dec 2025",
