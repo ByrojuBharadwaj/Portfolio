@@ -3,6 +3,14 @@ import React from 'react';
 const Experience = () => {
   const jobs = [
     {
+      company: "InternPro",
+      title: "Backend Engineer",
+      range: "Feb 2026 - Present",
+      duties: [
+        "Engineered DrivePhase, a multi-tenant SaaS platform with AI features for managing initiatives from idea through impact. It uses Go/Fiber, PostgreSQL, SvelteKit, AWS ECS/RDS, and Terraform/Terragrunt. A five-stage workflow enforces role-based approvals and audit trails. Hierarchical RBAC, JWT/Auth0 authentication, impersonation, tenant isolation, and cached permissions secure access. Tracking delivers health scores, expense and budget analysis, timelines, management rollups, and a JavaScript API client."
+      ]
+    },
+    {
       company: "TheBest Claims Solutions",
       title: "AI Solutions Engineer",
       range: "June 2026 - Present",
@@ -12,7 +20,7 @@ const Experience = () => {
     },
     {
       company: "Arizona State University",
-      title: "Software Engineer (Support Aide)",
+      title: "Backend Engineer",
       range: "Jun 2024 - Dec 2025",
       duties: [
         "I designed and shipped Edu-Agent an enterprise-grade real-time conversational AI for academic support. I led the multi-step workflow architecture, engineered LLM-driven TTS prosody via ElevenLabs and Azure to improve speech naturalness, and fine-tuned models to reduce latency by 30%. The system improved student inquiry resolution speed by 45%, validated through live voice traffic analytics and A/B testing."
@@ -20,7 +28,7 @@ const Experience = () => {
     },
     {
       company: "Cognizant Technology Solutions",
-      title: "Software Engineer (Programmer Analyst)",
+      title: "Backend Engineer",
       range: "Jan 2022 - Dec 2023",
       duties: [
         "I engineered the transformation of a Global Payment Concierge platform migrating it from a legacy ML-based intent detection model to a next-generation generative AI agent, achieving 98% uptime. I built Python-based LLM service logic integrated with JavaScript frontends, enabling context-aware payment dispute resolution synced with enterprise CRM systems establishing a scalable foundation for agentic payment operations across global transaction pipelines."
