@@ -23,10 +23,20 @@ a, button, .mk-button, [role="button"], input, textarea, .cursor-pointer {
 .cursor-line-h, .cursor-line-v {
   position: fixed; background-color: #8A4C16;
   pointer-events: none; z-index: 9999;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
 }
 .cursor-line-h { height: 1px; width: 100vw; left: 0; }
 .cursor-line-v { width: 1px; height: 100vh; top: 0; }
+
+@media (prefers-color-scheme: dark) {
+  .cursor-line-h, .cursor-line-v {
+    background-color: #ffffff;
+  }
+
+  .gooey-blob {
+    background-color: rgba(255, 255, 255, 0.85) !important;
+  }
+}
 
 .mk-button {
   position: relative;
