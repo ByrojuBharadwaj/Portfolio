@@ -11,7 +11,7 @@ const CursorLines = () => {
 
   useEffect(() => {
     const applyLineColors = () => {
-      const color = isDarkReaderActive() ? '#ffffff' : '';
+      const color = isDarkReaderActive() ? 'rgba(255, 255, 255, 0.35)' : '';
       [hRef.current, vRef.current].forEach((el) => {
         if (!el) return;
         if (color) el.style.setProperty('background-color', color, 'important');

@@ -28,10 +28,10 @@ a, button, .mk-button, [role="button"], input, textarea, .cursor-pointer {
 .cursor-line-h { height: 1px; width: 100vw; left: 0; }
 .cursor-line-v { width: 1px; height: 100vh; top: 0; }
 
-/* Dark Reader extension — force gooey blobs + cursor lines to white */
+/* Dark Reader extension — force gooey blobs + cursor lines to soft white */
 html[data-darkreader-scheme="dark"] .cursor-line-h,
 html[data-darkreader-scheme="dark"] .cursor-line-v {
-  background-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.35) !important;
 }
 
 html[data-darkreader-scheme="dark"] .gooey-blob {
