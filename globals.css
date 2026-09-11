@@ -28,14 +28,14 @@ a, button, .mk-button, [role="button"], input, textarea, .cursor-pointer {
 .cursor-line-h { height: 1px; width: 100vw; left: 0; }
 .cursor-line-v { width: 1px; height: 100vh; top: 0; }
 
-@media (prefers-color-scheme: dark) {
-  .cursor-line-h, .cursor-line-v {
-    background-color: #ffffff;
-  }
+/* Dark Reader extension — force gooey blobs + cursor lines to white */
+html[data-darkreader-scheme="dark"] .cursor-line-h,
+html[data-darkreader-scheme="dark"] .cursor-line-v {
+  background-color: #ffffff !important;
+}
 
-  .gooey-blob {
-    background-color: rgba(255, 255, 255, 0.85) !important;
-  }
+html[data-darkreader-scheme="dark"] .gooey-blob {
+  background-color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .mk-button {

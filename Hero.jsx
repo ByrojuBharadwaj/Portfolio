@@ -1,14 +1,39 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
+const isDarkReaderActive = () =>
+  document.documentElement.getAttribute('data-darkreader-scheme') === 'dark';
 
 const Hero = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const blobRefs = [useRef(null), useRef(null), useRef(null)];
 
   useEffect(() => {
+    const applyBlobColors = () => {
+      const color = isDarkReaderActive() ? 'rgba(255, 255, 255, 0.85)' : '';
+      blobRefs.forEach((ref) => {
+        const el = ref.current;
+        if (!el) return;
+        if (color) el.style.setProperty('background-color', color, 'important');
+        else el.style.removeProperty('background-color');
+      });
+    };
+
+    applyBlobColors();
+    const observer = new MutationObserver(applyBlobColors);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-darkreader-scheme'],
+    });
+
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return (
@@ -44,26 +69,29 @@ const Hero = () => {
       <div className="absolute inset-0 pointer-events-none" style={{ filter: 'url(#goo)' }}>
         {/* Blob 1 */}
         <div 
+          ref={blobRefs[0]}
           className="gooey-blob absolute top-0 left-0 w-[22.4rem] h-[22.4rem] bg-tealAccent/80 rounded-full blur-xl transition-transform duration-[0.8s]"
           style={{ 
             transform: `translate(${mousePos.x}px, ${mousePos.y}px) translate(-50%, -50%)`,
-            transitionTimingFunction: 'cubic-bezier(0.18, 0.89, 0.32, 1.28)'
+            transitionTimingFunction: 'cubic-bezier(0.18, 0.89, 0.32, 1.28)',
           }}
         ></div>
         {/* Blob 2 - resized -30% */}
         <div 
+          ref={blobRefs[1]}
           className="gooey-blob absolute top-0 left-0 w-[15.4rem] h-[15.4rem] bg-[#83c3cc]/85 rounded-full blur-xl transition-transform duration-[1.1s]"
           style={{ 
             transform: `translate(${mousePos.x}px, ${mousePos.y}px) translate(-50%, -50%)`,
-            transitionTimingFunction: 'cubic-bezier(0.18, 0.89, 0.32, 1.28)'
+            transitionTimingFunction: 'cubic-bezier(0.18, 0.89, 0.32, 1.28)',
           }}
         ></div>
         {/* Blob 3 */}
         <div 
+          ref={blobRefs[2]}
           className="gooey-blob absolute top-0 left-0 w-[19.6rem] h-[19.6rem] bg-tealAccent/75 rounded-full blur-xl transition-transform duration-[1.4s]"
           style={{ 
             transform: `translate(${mousePos.x}px, ${mousePos.y}px) translate(-50%, -50%)`,
-            transitionTimingFunction: 'cubic-bezier(0.18, 0.89, 0.32, 1.28)'
+            transitionTimingFunction: 'cubic-bezier(0.18, 0.89, 0.32, 1.28)',
           }}
         ></div>
       </div>
@@ -72,8 +100,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-
-
-
-
