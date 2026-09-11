@@ -9,7 +9,7 @@ const Hero = () => {
 
   useEffect(() => {
     const applyBlobColors = () => {
-      const color = isDarkReaderActive() ? 'rgba(255, 255, 255, 0.85)' : '';
+      const color = isDarkReaderActive() ? 'rgba(255, 255, 255, 0.4)' : '';
       blobRefs.forEach((ref) => {
         const el = ref.current;
         if (!el) return;

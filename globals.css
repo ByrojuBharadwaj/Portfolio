@@ -35,7 +35,7 @@ html[data-darkreader-scheme="dark"] .cursor-line-v {
 }
 
 html[data-darkreader-scheme="dark"] .gooey-blob {
-  background-color: rgba(255, 255, 255, 0.85) !important;
+  background-color: rgba(255, 255, 255, 0.4) !important;
 }
 
 .mk-button {
